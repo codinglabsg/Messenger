@@ -20,19 +20,24 @@ public class CreateMessageActivity extends Activity {
     public void onSendMessage(View view) {
         EditText messageView = (EditText)findViewById(R.id.message);
         String messageText = messageView.getText().toString();
+
+       //Exercise 1
         Intent intent = new Intent(this, ReceiveMessageActivity.class);
         intent.putExtra(EXTRA_MESSAGE, messageText);
         startActivity(intent);
 
         //Enhanced
+       /* Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, messageText);
+        startActivity(intent); */
+
+        //enhance further
         /*Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, messageText);
-
-        //enhance further
         String chooserTitle = getString(R.string.chooser);
         Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
-
         startActivity(chosenIntent); */
     }
 }
